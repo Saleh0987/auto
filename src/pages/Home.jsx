@@ -11,8 +11,8 @@ const Home = () => {
     <section className="relative flex items-center justify-center min-h-screen bg-gradient-to-r from-gray-800 to-gray-900 text-white overflow-hidden" id="home">
       <div className="grid max-w-4xl mx-auto gap-6 p-6">
         <div className="text-center">
-          <h1 className="text-5xl font-bold mb-2">Choose The Best Car</h1>
-          <h2 className="text-3xl mb-2">Porsche Mission E</h2>
+          <h1 className="text-3xl sm:text-5xl font-bold mb-2">Choose The Best Car</h1>
+          <h2 className="sm:text-3xl text-2xl mb-2">Porsche Mission E</h2>
           <h3 className="flex items-center justify-center text-lg text-gray-300">
             <RiFlashlightFill className="mr-2" /> Electric car
           </h3>
