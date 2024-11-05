@@ -34,7 +34,7 @@ const Home = () => {
             <h3 className="text-sm text-gray-400">BATTERY</h3>
           </div>
         </div>
-          <Link className="home--button mt-4">START</Link>
+          <Link to={'services'} className="home--button mt-4">START</Link>
       </div>
     </section>
   );

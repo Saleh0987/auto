@@ -6,7 +6,7 @@ const Footer = () => {
       <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-6">
         <div className="flex flex-col items-center justify-center text-center">
           <a href="#" className="text-2xl font-bold mb-2 flex items-center">
-            <i className="ri-steering-line mr-2" /> ElSaleh
+            <i className="ri-steering-line mr-2" /> AUTO
           </a>
           <p className="text-gray-300 mb-4">
             We offer the best electric cars of <br />

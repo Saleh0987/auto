@@ -80,11 +80,11 @@ const ProductDetails = () => {
               <img
                 src={product?.Picture}
                 alt={product?.Name}
-                className="w-full h-80 object-cover rounded-lg shadow-md"
+                className="w-full h-80 object-contain rounded-lg shadow-md"
               />
             </div>
             <div className="flex-1 flex flex-col justify-center gap-4">
-              <h1 className="text-4xl font-bold text-gray-800">{product?.Name}</h1>
+              <h1 className="sm:text-4xl text-2xl font-bold text-gray-800">{product?.Name}</h1>
               <p className="text-lg text-gray-600">{product?.Details}</p>
               <p className="text-2xl text-indigo-600 font-semibold mt-4">${product?.Price}</p>
               <h4 className="text-lg font-medium text-gray-700 mt-4">Category: {product?.Category}</h4>

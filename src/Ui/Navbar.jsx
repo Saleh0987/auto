@@ -107,13 +107,13 @@ useEffect(() => {
           <div className="fixed inset-0 cursor-pointer" onClick={toggleMenu}></div>
           <div className="absolute top-50 left-0 right-0 z-50 bg-gradient-to-r from-gray-800 to-gray-900 md:hidden">
             <div className="px-2 pt-2 pb-3 flex justify-center items-center flex-col space-y-1 sm:px-3">
-              <NavLink to="/" className="text-white hover:text-indigo-600 block px-3 py-2 rounded-md text-base font-medium">Home</NavLink>
-              <NavLink to="/about" className="text-white hover:text-indigo-600 block px-3 py-2 rounded-md text-base font-medium">About</NavLink>
-              <NavLink to="/services" className="text-white hover:text-indigo-600 block px-3 py-2 rounded-md text-base font-medium">Services</NavLink>
-              <NavLink to="/contact" className="text-white hover:text-indigo-600 block px-3 py-2 rounded-md text-base font-medium">Contact</NavLink>
-              <NavLink to="/profile" className="text-white hover:text-indigo-600 block px-3 py-2 rounded-md text-base font-medium">Profile</NavLink>
-              <NavLink to="/favorites" className="text-white hover:text-black block w-[120px] text-center px-3 py-2 bg-green-500 rounded-md text-base font-medium">Favorites</NavLink>
-              <NavLink to="/cart" className="text-black hover:text-black block w-[120px] text-center px-7 py-2 bg-red-500 rounded-md text-base font-medium relative">
+              <NavLink onClick={toggleMenu} to="/" className="text-white hover:text-indigo-600 block px-3 py-2 rounded-md text-base font-medium">Home</NavLink>
+              <NavLink onClick={toggleMenu} to="/about" className="text-white hover:text-indigo-600 block px-3 py-2 rounded-md text-base font-medium">About</NavLink>
+              <NavLink onClick={toggleMenu} to="/services" className="text-white hover:text-indigo-600 block px-3 py-2 rounded-md text-base font-medium">Services</NavLink>
+              <NavLink onClick={toggleMenu} to="/contact" className="text-white hover:text-indigo-600 block px-3 py-2 rounded-md text-base font-medium">Contact</NavLink>
+              <NavLink onClick={toggleMenu} to="/profile" className="text-white hover:text-indigo-600 block px-3 py-2 rounded-md text-base font-medium">Profile</NavLink>
+              <NavLink onClick={toggleMenu} to="/favorites" className="text-white hover:text-black block w-[120px] text-center px-3 py-2 bg-green-500 rounded-md text-base font-medium">Favorites</NavLink>
+              <NavLink onClick={toggleMenu} to="/cart" className="text-black hover:text-black block w-[120px] text-center px-7 py-2 bg-red-500 rounded-md text-base font-medium relative">
                 Cart
                 {cartCount > 0 && (
                   <span className="absolute top-0 bottom-1 right-0 bg-white text-black text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
