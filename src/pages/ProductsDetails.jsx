@@ -13,6 +13,7 @@ const ProductDetails = () => {
   const [product, setProduct] = useState(null);
   const [relatedProducts, setRelatedProducts] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [loadingCartAction, setLoadingCartAction] = useState(false); // State for tracking loading cart action
   const { cartItems, addToCart, removeFromCart } = useCart();
   const inCart = cartItems.some((item) => item.productId === parseInt(id));
 
@@ -38,40 +39,46 @@ const ProductDetails = () => {
     fetchProductDetails();
   }, [id]);
 
-  const handleCartToggle = () => {
-    if (inCart) {
-      removeFromCart(product.id);
-    } else {
-      addToCart(product);
+  const handleCartToggle = async () => {
+    setLoadingCartAction(true); // Start loading
+    try {
+      if (inCart) {
+        await removeFromCart(product.id);
+      } else {
+        await addToCart(product);
+      }
+    } catch (error) {
+      console.error("Error updating cart:", error);
+    } finally {
+      setLoadingCartAction(false); // End loading
     }
   };
 
-  const sliderSettings = {
-    dots: false,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 4,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 3000,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: { slidesToShow: 2, slidesToScroll: 1 }
-      },
-      {
-        breakpoint: 640,
-        settings: { slidesToShow: 1, slidesToScroll: 1 }
-      }
-    ]
-  };
-
-
+const sliderSettings = {
+  dots: false,
+  infinite: true,
+  speed: 1000,
+  slidesToShow: 4,
+  slidesToScroll: 2,
+  autoplay: true,
+  autoplaySpeed: 1500,
+  arrows: false, // This line disables the arrows
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: { slidesToShow: 2, slidesToScroll: 1 }
+    },
+    {
+      breakpoint: 640,
+      settings: { slidesToShow: 1, slidesToScroll: 1 }
+    }
+  ]
+};
 
 
   return (
     <div className="w-full min-h-screen bg-gradient-to-r from-gray-800 to-gray-900 flex flex-col items-center justify-center py-16">
-      <div className="w-full max-w-6xl p-6 md:p-12 bg-white shadow-lg rounded-lg flex flex-col md:flex-row items-center gap-12 mb-16">
+      <div className="container mx-auto min-h-[70vh] p-6 md:p-12 bg-white shadow-lg rounded-lg flex flex-col md:flex-row items-center gap-12 mb-16">
         {loading ? (
           <Loader />
         ) : (
@@ -90,19 +97,27 @@ const ProductDetails = () => {
               <h4 className="text-lg font-medium text-gray-700 mt-4">Category: {product?.Category}</h4>
               <button
                 onClick={handleCartToggle}
-                  className={`mt-6 w-full md:w-auto ${inCart ? ' bg-red-600 hover:bg-red-700' : ' bg-indigo-600 hover:bg-indigo-700'}
-                 text-white py-3 px-6 rounded-md text-lg transition-colors shadow-md`}
+                className={`mt-6 w-full md:w-auto ${inCart ? 'bg-red-600 hover:bg-red-700' : 'bg-indigo-600 hover:bg-indigo-700'}
+                  text-white py-3 px-6 rounded-md text-lg transition-colors shadow-md flex items-center justify-center`}
+                disabled={loadingCartAction} // Disable button while loading
               >
-                {inCart ? "Remove from Cart" : "Add to Cart"}
+                {loadingCartAction ? (
+                  <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
+                  </svg>
+                ) : (
+                  inCart ? "Remove from Cart" : "Add to Cart"
+                )}
               </button>
             </div>
           </>
         )}
       </div>
-      
+
       {/* Related Products Slider */}
-      <div className="w-full max-w-6xl px-6">
-        <h2 className="text-3xl font-bold text-white mb-8">More from {product?.Category}</h2>
+      <div className="container mx-auto">
+        <h2 className="text-3xl text-center font-bold text-white mb-8">More from {product?.Category}</h2>
         <Slider {...sliderSettings}>
           {relatedProducts.map((item) => (
             <div key={item.id} className="p-4 cursor-pointer" onClick={() => navigate(`/product/${item.id}`)}>
