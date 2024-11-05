@@ -5,7 +5,6 @@ import HeroImg from '../assets/img/home.png';
 import { Link } from 'react-router-dom';
 
 const Home = () => {
-  const { currentUser } = useAuth();
 
   return (
     <section className="relative flex items-center justify-center min-h-screen bg-gradient-to-r from-gray-800 to-gray-900 text-white overflow-hidden" id="home">
