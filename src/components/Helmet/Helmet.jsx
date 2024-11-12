@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 
 const Helmet = (props) => {
   useEffect(() => {
-    document.title = "L'HABILLEUR - " + props.title;
+    document.title = "auto - " + props.title;
   }, [props.title]);
 
   return (
