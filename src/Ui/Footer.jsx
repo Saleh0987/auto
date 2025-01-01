@@ -14,15 +14,7 @@ const Footer = () => {
             the world.
           </p>
           <div className="flex space-x-4">
-            <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-blue-600">
-              <i className="ri-facebook-fill text-xl" />
-            </a>
-            <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-blue-600">
-              <i className="ri-linkedin-fill text-xl" />
-            </a>
-            <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-blue-600">
-              <i className="ri-twitter-fill text-xl" />
-            </a>
+            <div>{" "}</div>
           </div>
         </div>
         <div className="flex flex-col items-center justify-center text-center">
@@ -51,11 +43,12 @@ const Footer = () => {
             <button type="submit" className="bg-blue-600 hover:bg-blue-500 text-white 
             py-2 rounded transition duration-200">Subscribe</button>
           </form>
+          <span className="block text-center text-gray-400 mt-4">
+          © El-Saleh. 2024. All rights reserved
+          </span>
         </div>
+
       </div>
-      <span className="block text-center text-gray-400 mt-6">
-        © El-Saleh. 2024. All rights reserved
-      </span>
     </footer>
   );
 };

@@ -37,7 +37,7 @@ const Login = () => {
 
   return (
     <Helmet title='Login'>
-      <div className="flex items-center justify-center min-h-screen bg-gray-100">
+      <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-gray-800 to-gray-900">
         {loading ? (
           <div className="text-center h-100">
             <Loader />

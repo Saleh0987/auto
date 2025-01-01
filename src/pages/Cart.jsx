@@ -57,7 +57,7 @@ const Cart = () => {
   return (
     <div className="min-h-screen p-6 flex flex-col items-center">
       <h2 className="text-4xl font-bold mb-8 text-white">Your Cart</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 container mx-auto">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 container mx-auto">
         {cartItems.length > 0 ? (
           cartItems.map((item) => {
             const price = parseFloat(item.price) || 0;
@@ -74,11 +74,11 @@ const Cart = () => {
                 </div>
                 <div className="flex items-center justify-center mt-auto">
                   <div className="flex items-center">
-                    <button onClick={() => decreaseQuantity(item)} className="p-2 bg-gray-200 rounded-l-md hover:bg-gray-300">
+                    <button onClick={() => decreaseQuantity(item)} className="p-1 bg-gray-200 rounded-l-md hover:bg-gray-300">
                       <AiOutlineMinus />
                     </button>
-                    <span className="border-t border-b border-gray-300 px-4">{quantity}</span>
-                    <button onClick={() => increaseQuantity(item)} className="p-2 bg-gray-200 rounded-r-md hover:bg-gray-300">
+                    <span className="border-t border-b  border-gray-300 px-4">{quantity}</span>
+                    <button onClick={() => increaseQuantity(item)} className="p-1 bg-gray-200 rounded-r-md hover:bg-gray-300">
                       <AiOutlinePlus />
                     </button>
                   </div>

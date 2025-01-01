@@ -75,7 +75,8 @@ useEffect(() => {
                 <NavLink to="/cart" className="text-white hover:text-indigo-600 px-3 py-2 rounded-md text-md relative">
                   <FiShoppingCart className="h-6 w-6" />
                   {cartCount > 0 && (
-                    <span className="absolute top-0 right-0 bg-red-500 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
+                    <span className="absolute top-0 right-0 bg-red-500 text-white 
+                    text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
                       {cartCount}
                     </span>
                   )}
